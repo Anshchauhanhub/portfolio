@@ -187,15 +187,61 @@
         }
 
         /* Enhanced mobile responsiveness */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-        }
+              /* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Adjusted for smaller screens */
+    }
+    
+    h2 {
+        font-size: 1.75rem; /* Adjusted for smaller screens */
+    }
+
+    h3 {
+        font-size: 1.5rem; /* Adjusted for smaller screens */
+    }
+
+    h4 {
+        font-size: 1.25rem; /* Adjusted for smaller screens */
+    }
+
+    .frost-card {
+        padding: 1.5rem; /* Adjusted padding for smaller screens */
+    }
+
+    .cv-preview {
+        padding: 1rem; /* Adjusted padding for smaller screens */
+    }
+
+    .social-link {
+        flex-direction: column; /* Stack social links on smaller screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .social-link i {
+        margin-bottom: 0.5rem; /* Space between icon and text */
+    }
+}
+
+/* Additional media query for very small devices */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Further adjust for very small screens */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Further adjust for very small screens */
+    }
+
+    .cool-button {
+        padding: 0.75rem 1.5rem; /* Adjust button padding for smaller screens */
+    }
+
+    .text-lg {
+        font-size: 0.9rem; /* Adjust text size for smaller screens */
+    }
+}
+
 
         /* Footer enhancement */
         footer {
