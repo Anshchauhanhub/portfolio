@@ -252,36 +252,60 @@
     <div class="particles" id="particles"></div>
 
     <!-- Header -->
-    <header class="relative z-50 frost-effect">
-        <div class="container mx-auto px-6 py-6 flex items-center justify-between flex-wrap">
-            <div class="flex items-center space-x-6">
-                <div class="relative">
-                    <img src="assets\image.png" 
-                         alt="AI Developer Avatar" 
-                         class="w-20 h-20 rounded-full border-3 border-current shadow-lg">
-                    <div class="absolute inset-0 rounded-full border-2 border-current animate-pulse"></div>
-                </div>
-                <div>
-                    <h1 class="text-3xl font-bold">Ansh Chauhan</h1>
-                    <p class="text-sm" style="color: var(--secondary-color);">AI Developer & Machine Learning Engineer</p>
-                </div>
-            </div>
-            <nav class="hidden md:flex space-x-8 font-bold">
-                <a href="#projects" class="hover:text-current transition-all duration-300 relative group">
-                    Projects
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#about" class="hover:text-current transition-all duration-300 relative group">
-                    About
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#contact" class="hover:text-current transition-all duration-300 relative group">
-                    Contact
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
-                </a>
-            </nav>
-        </div>
-    </header>
+<header class="relative z-50 frost-effect">
+  <div class="container mx-auto px-6 py-6 flex items-center justify-between flex-wrap">
+      <!-- Left: Avatar, Name, Subtitle -->
+      <div class="flex items-center space-x-6">
+          <div class="relative">
+              <img src="assets/image.png" 
+                   alt="AI Developer Avatar" 
+                   class="w-20 h-20 rounded-full border-3 border-current shadow-lg">
+              <div class="absolute inset-0 rounded-full border-2 border-current animate-pulse"></div>
+          </div>
+          <div>
+              <h1 class="text-3xl font-bold">Ansh Chauhan</h1>
+              <p class="text-sm" style="color: var(--secondary-color);">AI Developer & Machine Learning Engineer</p>
+          </div>
+      </div>
+      <!-- Right: Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8 font-bold">
+          <a href="#projects" class="hover:text-current transition-all duration-300 relative group">
+              Projects
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#about" class="hover:text-current transition-all duration-300 relative group">
+              About
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#contact" class="hover:text-current transition-all duration-300 relative group">
+              Contact
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
+          </a>
+      </nav>
+      <!-- Hamburger for mobile -->
+      <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-3xl focus:outline-none">
+              <i class="fas fa-bars"></i>
+          </button>
+      </div>
+  </div>
+  <!-- Mobile menu (slide-in) -->
+  <div id="mobile-menu" class="md:hidden fixed top-0 right-0 w-2/3 max-w-xs h-full bg-[#0f172a] shadow-xl z-50 transform translate-x-full transition-transform duration-300">
+      <div class="flex justify-end p-4">
+          <button id="mobile-menu-close" class="text-2xl text-white focus:outline-none">
+              <i class="fas fa-times"></i>
+          </button>
+      </div>
+      <nav class="flex flex-col items-end space-y-8 pr-8 mt-8 font-bold text-lg">
+          <a href="#projects" class="hover:text-green-400 transition-all duration-300" onclick="closeMobileMenu()">Projects</a>
+          <a href="#about" class="hover:text-green-400 transition-all duration-300" onclick="closeMobileMenu()">About</a>
+          <a href="#contact" class="hover:text-green-400 transition-all duration-300" onclick="closeMobileMenu()">Contact</a>
+      </nav>
+  </div>
+  <!-- Overlay for mobile menu -->
+  <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-black bg-opacity-40 z-40"></div>
+</header>
+
 
     <!-- Main Content -->
     <main class="relative z-10 container mx-auto px-6 py-16">
@@ -581,6 +605,26 @@
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+        
+    // Hamburger menu toggle
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function openMobileMenu() {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenuOverlay.classList.remove('hidden');
+    }
+    function closeMobileMenu() {
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.add('hidden');
+    }
+    menuBtn.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+
     </script>
 </body>
 </html>
