@@ -58,7 +58,6 @@
             50% { opacity: 0.6; }
         }
         
-        /* Enhanced typography */
         h1, h2, h3, h4 {
             font-family: "Orbitron", monospace;
             color: var(--primary-color);
@@ -106,8 +105,23 @@
             position: relative;
             z-index: 100;
         }
+        /* Footer enhancement */
+        footer {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+            border-top: 3px solid var(--primary-color);
+            box-shadow: 
+                0 0 20px rgba(6, 95, 70, 0.5),
+                0 -5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
 
-        /* Frost cards - removed ice-highlight effect */
+        /* PRECISE PADDING for header and footer */
+        header,
+        footer {
+            padding: 10px 0 !important;
+        }
+
+        /* Frost cards */
         .frost-card {
             background: rgba(15, 40, 35, 0.7);
             backdrop-filter: blur(12px);
@@ -187,45 +201,15 @@
         }
 
         /* Enhanced mobile responsiveness */
-        /* Base styles (mobile first) */
-        h1 {
-        font-size: 1.5rem;
-        }
-
-        h2 {
-        font-size: 1.25rem;
-        }
-
-        /* Medium screens (tablets) */
+        h1 { font-size: 1.5rem; }
+        h2 { font-size: 1.25rem; }
         @media (min-width: 768px) {
-        h1 {
-          font-size: 2rem;
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
         }
-
-        h2 {
-         font-size: 1.5rem;
-           }
-        }
-
-/* Large screens (desktops) */
         @media (min-width: 1024px) {
-        h1 {
-          font-size: 2.5rem;
-         }
-
-        h2 {
-         font-size: 2rem;
-         }
-        }
-
-        /* Footer enhancement */
-        footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
-            border-top: 3px solid var(--primary-color);
-            box-shadow: 
-                0 0 20px rgba(6, 95, 70, 0.5),
-                0 -5px 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
         }
 
         /* CV Preview styles */
@@ -317,7 +301,6 @@
                         <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
-
                 <div class="frost-card p-8">
                     <div class="relative mb-6 overflow-hidden rounded-lg">
                         <img src="https://storage.googleapis.com/a1aa/image/6740ad41-d22d-4b77-13ce-aa47bcba655c.jpg" 
@@ -336,7 +319,6 @@
                         <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
-
                 <div class="frost-card p-8">
                     <div class="relative mb-6 overflow-hidden rounded-lg">
                         <img src="assets/image.jpg" 
@@ -385,7 +367,6 @@
                             <div class="text-sm">Years Experience</div>
                         </div>
                     </div>
-
                     <ul class="space-y-3 text-lg">
                         <li><i class="fas fa-robot text-green-500 mr-3"></i>AI & Machine Learning Specialist</li>
                         <li><i class="fas fa-brain text-blue-500 mr-3"></i>Deep Learning & Neural Networks</li>
@@ -490,7 +471,6 @@
             </div>
         </section>
     </main>
-
     <!-- Enhanced Footer -->
     <footer class="text-center py-8 relative z-10 frost-effect">
         <p class="text-lg font-bold" style="color: var(--primary-color);">
