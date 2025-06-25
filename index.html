@@ -58,7 +58,6 @@
             50% { opacity: 0.6; }
         }
         
-        /* Enhanced typography */
         h1, h2, h3, h4 {
             font-family: "Orbitron", monospace;
             color: var(--primary-color);
@@ -96,47 +95,33 @@
         }
 
         /* Enhanced header */
-        header, footer {
-            padding: 4px 0 !important; /* Minimal panel size */
+        header {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+            border-bottom: 3px solid var(--primary-color);
+            box-shadow: 
+                0 0 20px rgba(6, 95, 70, 0.5),
+                0 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 100;
         }
-        /* Responsive header/footer text */
-        header .text-3xl, header h1, header p, header .text-sm, header .font-bold, header .container {
-            font-size: 2vw;
-            line-height: 1.1;
-        }
-        footer p, footer .text-lg, footer .text-sm, footer .font-bold {
-            font-size: 2vw;
-            line-height: 1.1;
-        }
-        @media (max-width: 600px) {
-            header .text-3xl, header h1, header p, header .text-sm, header .font-bold, header .container,
-            footer p, footer .text-lg, footer .text-sm, footer .font-bold {
-                font-size: 3.5vw !important;
-                line-height: 1.1 !important;
-            }
-            header .w-20, header .h-20 {
-                width: 2.25rem !important;
-                height: 2.25rem !important;
-            }
-            header .space-x-6 {
-                gap: 0.5rem !important;
-            }
-            header .px-6, header .py-6 {
-                padding-left: 0.5rem !important;
-                padding-right: 0.5rem !important;
-                padding-top: 0 !important;
-                padding-bottom: 0 !important;
-            }
-            nav {
-                gap: 0.5rem !important;
-            }
-            footer .py-8 {
-                padding-top: 0.5rem !important;
-                padding-bottom: 0.5rem !important;
-            }
+        /* Footer enhancement */
+        footer {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+            border-top: 3px solid var(--primary-color);
+            box-shadow: 
+                0 0 20px rgba(6, 95, 70, 0.5),
+                0 -5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        /* Frost cards - removed ice-highlight effect */
+        /* PRECISE PADDING for header and footer */
+        header,
+        footer {
+            padding: 10px 0 !important;
+        }
+
+        /* Frost cards */
         .frost-card {
             background: rgba(15, 40, 35, 0.7);
             backdrop-filter: blur(12px);
@@ -216,24 +201,15 @@
         }
 
         /* Enhanced mobile responsiveness */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
+        h1 { font-size: 1.5rem; }
+        h2 { font-size: 1.25rem; }
+        @media (min-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
         }
-
-        /* Footer enhancement */
-        footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
-            border-top: 3px solid var(--primary-color);
-            box-shadow: 
-                0 0 20px rgba(6, 95, 70, 0.5),
-                0 -5px 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+        @media (min-width: 1024px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
         }
 
         /* CV Preview styles */
@@ -252,60 +228,36 @@
     <div class="particles" id="particles"></div>
 
     <!-- Header -->
-<header class="relative z-50 frost-effect">
-  <div class="container mx-auto px-6 py-6 flex items-center justify-between flex-wrap">
-      <!-- Left: Avatar, Name, Subtitle -->
-      <div class="flex items-center space-x-6">
-          <div class="relative">
-              <img src="assets/image.png" 
-                   alt="AI Developer Avatar" 
-                   class="w-20 h-20 rounded-full border-3 border-current shadow-lg">
-              <div class="absolute inset-0 rounded-full border-2 border-current animate-pulse"></div>
-          </div>
-          <div>
-              <h1 class="text-3xl font-bold">Ansh Chauhan</h1>
-              <p class="text-sm" style="color: var(--secondary-color);">AI Developer & Machine Learning Engineer</p>
-          </div>
-      </div>
-      <!-- Right: Desktop Navigation -->
-      <nav class="hidden md:flex space-x-8 font-bold">
-          <a href="#projects" class="hover:text-current transition-all duration-300 relative group">
-              Projects
-              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#about" class="hover:text-current transition-all duration-300 relative group">
-              About
-              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#contact" class="hover:text-current transition-all duration-300 relative group">
-              Contact
-              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
-          </a>
-      </nav>
-      <!-- Hamburger for mobile -->
-      <div class="md:hidden flex items-center">
-          <button id="mobile-menu-button" class="text-3xl focus:outline-none">
-              <i class="fas fa-bars"></i>
-          </button>
-      </div>
-  </div>
-  <!-- Mobile menu (slide-in) -->
-  <div id="mobile-menu" class="md:hidden fixed top-0 right-0 w-2/3 max-w-xs h-full bg-[#0f172a] shadow-xl z-50 transform translate-x-full transition-transform duration-300">
-      <div class="flex justify-end p-4">
-          <button id="mobile-menu-close" class="text-2xl text-white focus:outline-none">
-              <i class="fas fa-times"></i>
-          </button>
-      </div>
-      <nav class="flex flex-col items-end space-y-8 pr-8 mt-8 font-bold text-lg">
-          <a href="#projects" class="hover:text-green-400 transition-all duration-300" onclick="closeMobileMenu()">Projects</a>
-          <a href="#about" class="hover:text-green-400 transition-all duration-300" onclick="closeMobileMenu()">About</a>
-          <a href="#contact" class="hover:text-green-400 transition-all duration-300" onclick="closeMobileMenu()">Contact</a>
-      </nav>
-  </div>
-  <!-- Overlay for mobile menu -->
-  <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-black bg-opacity-40 z-40"></div>
-</header>
-
+    <header class="relative z-50 frost-effect">
+        <div class="container mx-auto px-6 py-6 flex items-center justify-between flex-wrap">
+            <div class="flex items-center space-x-6">
+                <div class="relative">
+                    <img src="assets/image.png" 
+                         alt="AI Developer Avatar" 
+                         class="w-20 h-20 rounded-full border-3 border-current shadow-lg">
+                    <div class="absolute inset-0 rounded-full border-2 border-current animate-pulse"></div>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold">Ansh Chauhan</h1>
+                    <p class="text-sm" style="color: var(--secondary-color);">AI Developer & Machine Learning Engineer</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-bold">
+                <a href="#projects" class="hover:text-current transition-all duration-300 relative group">
+                    Projects
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="hover:text-current transition-all duration-300 relative group">
+                    About
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="hover:text-current transition-all duration-300 relative group">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+        </div>
+    </header>
 
     <!-- Main Content -->
     <main class="relative z-10 container mx-auto px-6 py-16">
@@ -349,7 +301,6 @@
                         <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
-
                 <div class="frost-card p-8">
                     <div class="relative mb-6 overflow-hidden rounded-lg">
                         <img src="https://storage.googleapis.com/a1aa/image/6740ad41-d22d-4b77-13ce-aa47bcba655c.jpg" 
@@ -368,10 +319,9 @@
                         <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
-
                 <div class="frost-card p-8">
                     <div class="relative mb-6 overflow-hidden rounded-lg">
-                        <img src="assets\image.jpg" 
+                        <img src="assets/image.jpg" 
                              alt="Sentiment Analysis" 
                              class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110">
                     </div>
@@ -417,7 +367,6 @@
                             <div class="text-sm">Years Experience</div>
                         </div>
                     </div>
-
                     <ul class="space-y-3 text-lg">
                         <li><i class="fas fa-robot text-green-500 mr-3"></i>AI & Machine Learning Specialist</li>
                         <li><i class="fas fa-brain text-blue-500 mr-3"></i>Deep Learning & Neural Networks</li>
@@ -522,7 +471,6 @@
             </div>
         </section>
     </main>
-
     <!-- Enhanced Footer -->
     <footer class="text-center py-8 relative z-10 frost-effect">
         <p class="text-lg font-bold" style="color: var(--primary-color);">
@@ -605,26 +553,6 @@
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
-        
-    // Hamburger menu toggle
-    const menuBtn = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-
-    function openMobileMenu() {
-        mobileMenu.classList.remove('translate-x-full');
-        mobileMenuOverlay.classList.remove('hidden');
-    }
-    function closeMobileMenu() {
-        mobileMenu.classList.add('translate-x-full');
-        mobileMenuOverlay.classList.add('hidden');
-    }
-    menuBtn.addEventListener('click', openMobileMenu);
-    mobileMenuClose.addEventListener('click', closeMobileMenu);
-    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-
-
     </script>
 </body>
 </html>
