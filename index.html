@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1024, initial-scale=0.5, maximum-scale=3.0, user-scalable=yes">
     <title>Ansh Chauhan - AI Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -27,6 +27,20 @@
             overflow-x: hidden;
             position: relative;
             background: linear-gradient(135deg, #0f172a 0%, #0f2d30 50%, #0f3c2d 100%);
+            /* Force desktop layout on all devices - ALWAYS ON */
+            min-width: 1024px !important;
+        }
+
+        /* Force desktop layout on mobile devices - ALWAYS ON */
+        @media screen and (max-width: 1024px) {
+            body {
+                min-width: 1024px !important;
+                overflow-x: auto;
+            }
+            
+            .container {
+                min-width: 1024px !important;
+            }
         }
 
         /* Cold aesthetic enhancements */
@@ -471,6 +485,7 @@
             </div>
         </section>
     </main>
+
     <!-- Enhanced Footer -->
     <footer class="text-center py-8 relative z-10 frost-effect">
         <p class="text-lg font-bold" style="color: var(--primary-color);">
@@ -528,8 +543,10 @@
             // document.body.removeChild(link);
         }
 
-        // Initialize
-        createParticles();
+        // Initialize particles on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+        });
 
         // Add scroll animations
         const observerOptions = {
